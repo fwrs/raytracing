@@ -16,6 +16,10 @@ class Renderer {
     weak var delegate: RendererDelegate?
     var currentImage: NSImage?
     
+    var fov: Double? {
+        didSet { Task { await draw() } }
+    }
+    
     private static let size = (width: 256 * 2, height: 256)
     private var pixels: UnsafeMutablePointer<CUnsignedChar>?
     private var imageMatrix: [[Color]] = Array(repeating: Array(repeating: .zero, count: size.width), count: size.height)
@@ -31,7 +35,7 @@ class Renderer {
         
         let aspectRatio = Double(Self.size.width) / Double(Self.size.height)
         let viewportSize = (width: 2 * aspectRatio, height: 2 as Double)
-        let focalLength: Double = 1
+        let focalLength: Double = fov ?? 1
         
         let origin = Vector3.zero
         let horizontalVector = Vector3(x: viewportSize.width, y: 0, z: 0)

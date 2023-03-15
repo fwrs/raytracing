@@ -21,6 +21,10 @@ class ViewController: NSViewController {
             await renderer.draw()
         }
     }
+    
+    @IBAction func fovSliderDidChange(_ slider: NSSlider) {
+        renderer.fov = slider.doubleValue / 100 - 1
+    }
 }
 
 extension ViewController: RendererDelegate {
@@ -36,6 +40,7 @@ extension ViewController: RendererDelegate {
                 }
             }
         } else {
+            progressLabel.alphaValue = 1
             progressLabel.stringValue = "Line \(index)"
         }
     }

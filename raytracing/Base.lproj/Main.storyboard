@@ -712,38 +712,72 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="z8B-r7-mGA">
-                                <rect key="frame" x="0.0" y="0.0" width="512" height="256"/>
+                                <rect key="frame" x="0.0" y="0.0" width="512" height="226"/>
                                 <view key="contentView" id="Hkp-oc-nfd">
-                                    <rect key="frame" x="0.0" y="0.0" width="512" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="512" height="226"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="fillColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </box>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ubm-tq-q76">
-                                <rect key="frame" x="0.0" y="0.0" width="512" height="256"/>
+                                <rect key="frame" x="0.0" y="0.0" width="512" height="226"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="RDv-pH-3b6"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KcD-sJ-GgC">
-                                <rect key="frame" x="18" y="222" width="56" height="14"/>
+                                <rect key="frame" x="18" y="192" width="56" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Progress" id="jvm-8w-iri">
                                     <font key="font" size="13" name="PragmataProMono-Regular"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-Yj-khK">
+                                <rect key="frame" x="20" y="226" width="174" height="30"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1La-f9-F2n">
+                                        <rect key="frame" x="-2" y="7" width="30" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="FOV" id="FXn-Fk-QOB">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lou-KQ-xBq">
+                                        <rect key="frame" x="32" y="-1" width="144" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="OsA-BJ-C6Q"/>
+                                        </constraints>
+                                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="3DQ-Gy-cMZ"/>
+                                        <connections>
+                                            <action selector="fovSliderDidChange:" target="XfG-lQ-9wD" id="Rmo-Xx-Iuo"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="z8B-r7-mGA" secondAttribute="trailing" id="1oH-Us-Jvn"/>
                             <constraint firstItem="KcD-sJ-GgC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="2AX-ye-eq6"/>
-                            <constraint firstItem="Ubm-tq-q76" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="CWs-h4-0er"/>
+                            <constraint firstItem="Ubm-tq-q76" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="CWs-h4-0er"/>
                             <constraint firstItem="z8B-r7-mGA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="FMp-XS-hHM"/>
                             <constraint firstAttribute="trailing" secondItem="Ubm-tq-q76" secondAttribute="trailing" id="Fyl-Cc-3mI"/>
-                            <constraint firstItem="KcD-sJ-GgC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="GRj-tK-TXO"/>
+                            <constraint firstItem="4Rc-Yj-khK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Jgn-a2-Fh3"/>
+                            <constraint firstItem="KcD-sJ-GgC" firstAttribute="top" secondItem="Ubm-tq-q76" secondAttribute="top" constant="20" id="apF-kd-LbR"/>
                             <constraint firstAttribute="bottom" secondItem="Ubm-tq-q76" secondAttribute="bottom" id="fHd-YI-lW9"/>
                             <constraint firstItem="Ubm-tq-q76" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="gZY-Jf-4hP"/>
-                            <constraint firstItem="z8B-r7-mGA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="qHR-XW-Ulb"/>
+                            <constraint firstItem="z8B-r7-mGA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="qHR-XW-Ulb"/>
                             <constraint firstAttribute="bottom" secondItem="z8B-r7-mGA" secondAttribute="bottom" id="rOr-Ou-akb"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KcD-sJ-GgC" secondAttribute="trailing" constant="20" id="v4q-GS-CSD"/>
+                            <constraint firstItem="4Rc-Yj-khK" firstAttribute="bottom" secondItem="Ubm-tq-q76" secondAttribute="top" id="vie-el-cne"/>
+                            <constraint firstItem="4Rc-Yj-khK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="xgw-CG-uAJ"/>
                         </constraints>
                     </view>
                     <connections>
