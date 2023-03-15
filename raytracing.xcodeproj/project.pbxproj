@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8A3C79129C161E20073BDEC /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3C79029C161E20073BDEC /* Renderer.swift */; };
 		B8B6511A29BD862D00940DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B6511929BD862D00940DB6 /* AppDelegate.swift */; };
 		B8B6511C29BD862D00940DB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B6511B29BD862D00940DB6 /* ViewController.swift */; };
 		B8B6511E29BD862E00940DB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B6511D29BD862E00940DB6 /* Assets.xcassets */; };
 		B8B6512129BD862E00940DB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B6511F29BD862E00940DB6 /* Main.storyboard */; };
+		B8E136D529C179E10037611B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D429C179E10037611B /* Utils.swift */; };
+		B8E136D729C17A280037611B /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D629C17A280037611B /* Vec3.swift */; };
+		B8E136D929C17F6C0037611B /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D829C17F6C0037611B /* Ray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8A3C79029C161E20073BDEC /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		B8B6511629BD862D00940DB6 /* raytracing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = raytracing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B6511929BD862D00940DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B6511B29BD862D00940DB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8B6511D29BD862E00940DB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8B6512029BD862E00940DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8B6512229BD862E00940DB6 /* raytracing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = raytracing.entitlements; sourceTree = "<group>"; };
+		B8E136D429C179E10037611B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B8E136D629C17A280037611B /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
+		B8E136D829C17F6C0037611B /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 				B8B6511D29BD862E00940DB6 /* Assets.xcassets */,
 				B8B6511F29BD862E00940DB6 /* Main.storyboard */,
 				B8B6512229BD862E00940DB6 /* raytracing.entitlements */,
+				B8A3C79029C161E20073BDEC /* Renderer.swift */,
+				B8E136D429C179E10037611B /* Utils.swift */,
+				B8E136D629C17A280037611B /* Vec3.swift */,
+				B8E136D829C17F6C0037611B /* Ray.swift */,
 			);
 			path = raytracing;
 			sourceTree = "<group>";
@@ -133,6 +145,10 @@
 			files = (
 				B8B6511C29BD862D00940DB6 /* ViewController.swift in Sources */,
 				B8B6511A29BD862D00940DB6 /* AppDelegate.swift in Sources */,
+				B8E136D929C17F6C0037611B /* Ray.swift in Sources */,
+				B8E136D729C17A280037611B /* Vec3.swift in Sources */,
+				B8A3C79129C161E20073BDEC /* Renderer.swift in Sources */,
+				B8E136D529C179E10037611B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
