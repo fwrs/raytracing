@@ -9,7 +9,6 @@ import Foundation
 
 struct Vector3 {
     static var zero: Self { .init(x: 0, y: 0, z: 0) }
-    static var randomColor: Self { .init(x: .random(in: 0..<255), y: .random(in: 0..<255), z: .random(in: 0..<255)) }
     
     var x: Double, y: Double, z: Double
     
@@ -21,8 +20,16 @@ struct Vector3 {
         sqrt(lengthSquared)
     }
     
+    var unit: Self {
+        self / length
+    }
+    
     static func +(lhs: Self, rhs: Self) -> Self {
         Self(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
+    }
+    
+    static func -(lhs: Self, rhs: Self) -> Self {
+        Self(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
     }
     
     static prefix func -(self: Self) -> Self {
@@ -55,14 +62,7 @@ struct Vector3 {
     
     subscript(index: Int) -> Double {
         get { [x, y, z][index] }
-        mutating set {
-            switch index {
-            case 0: x = newValue
-            case 1: y = newValue
-            case 2: z = newValue
-            default: fatalError("Invalid index \(index)")
-            }
-        }
+        mutating set { self[keyPath: [\Self.x, \.y, \.z][index]] = newValue }
     }
     
     func dot(_ rhs: Self) -> Double {

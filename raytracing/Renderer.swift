@@ -16,11 +16,11 @@ class Renderer {
     weak var delegate: RendererDelegate?
     var currentImage: NSImage?
     
-    private static let size = (width: 256, height: 256)
+    private static let size = (width: 256 * 2, height: 256)
     private var pixels: UnsafeMutablePointer<CUnsignedChar>?
     private var imageMatrix: [[Color]] = Array(repeating: Array(repeating: .zero, count: size.width), count: size.height)
     
-    func draw() async throws {
+    func draw() async {
         let displayP3 = CGColorSpace(name: CGColorSpace.displayP3).expect(orFailWith: "This mac's screen doesn't support P3")
         let context = CGContext(data: nil, width: Self.size.width, height: Self.size.height,
                                 bitsPerComponent: 8, bytesPerRow: 0, space: displayP3,
@@ -29,9 +29,21 @@ class Renderer {
         pixels = UnsafeMutablePointer<CUnsignedChar>(OpaquePointer(data))
         var offset = 0
         
+        let aspectRatio = Double(Self.size.width) / Double(Self.size.height)
+        let viewportSize = (width: 2 * aspectRatio, height: 2 as Double)
+        let focalLength: Double = 1
+        
+        let origin = Vector3.zero
+        let horizontalVector = Vector3(x: viewportSize.width, y: 0, z: 0)
+        let verticalVector = Vector3(x: 0, y: viewportSize.height, z: 0)
+        let lowerLeftCorner = origin - horizontalVector / 2 - verticalVector / 2 - Vector3(x: 0, y: 0, z: focalLength)
+        
         for x in 0..<Self.size.height {
             for y in 0..<Self.size.width {
-                imageMatrix[x][y] = Color(r: x, g: Self.size.height - y - 1, b: 80)
+                let u = Double(y) / Double(Self.size.width - 1)
+                let v = Double(x) / Double(Self.size.height - 1)
+                let ray = Ray(origin: origin, direction: lowerLeftCorner + u * horizontalVector + v * verticalVector - origin)
+                imageMatrix[x][y] = ray.color
                 addToBuffer(atOffset: &offset, x: x, y: y)
             }
             render(in: context, x: x)
@@ -53,5 +65,13 @@ class Renderer {
         Task { @MainActor in
             delegate?.renderer(self, didDrawLineWith: x, isComplete: x == Self.size.height - 1)
         }
+    }
+}
+
+extension Ray {
+    var color: Color {
+        let unitDirection = direction.unit
+        let offset = 0.5 * (unitDirection.y + 1)
+        return (1 - offset) * .white + offset * .skyBlue
     }
 }

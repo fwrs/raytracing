@@ -18,7 +18,7 @@ class ViewController: NSViewController {
         
         renderer.delegate = self
         Task {
-            try await renderer.draw()
+            await renderer.draw()
         }
     }
 }

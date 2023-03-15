@@ -15,6 +15,7 @@
 		B8E136D529C179E10037611B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D429C179E10037611B /* Utils.swift */; };
 		B8E136D729C17A280037611B /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D629C17A280037611B /* Vec3.swift */; };
 		B8E136D929C17F6C0037611B /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136D829C17F6C0037611B /* Ray.swift */; };
+		B8E136DB29C184B30037611B /* BaseColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E136DA29C184B30037611B /* BaseColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B8E136D429C179E10037611B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B8E136D629C17A280037611B /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
 		B8E136D829C17F6C0037611B /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		B8E136DA29C184B30037611B /* BaseColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				B8A3C79029C161E20073BDEC /* Renderer.swift */,
 				B8E136D429C179E10037611B /* Utils.swift */,
 				B8E136D629C17A280037611B /* Vec3.swift */,
+				B8E136DA29C184B30037611B /* BaseColors.swift */,
 				B8E136D829C17F6C0037611B /* Ray.swift */,
 			);
 			path = raytracing;
@@ -149,6 +152,7 @@
 				B8E136D729C17A280037611B /* Vec3.swift in Sources */,
 				B8A3C79129C161E20073BDEC /* Renderer.swift in Sources */,
 				B8E136D529C179E10037611B /* Utils.swift in Sources */,
+				B8E136DB29C184B30037611B /* BaseColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
