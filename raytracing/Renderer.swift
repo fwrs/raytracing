@@ -70,8 +70,20 @@ class Renderer {
 
 extension Ray {
     var color: Color {
+        if hitSphere(at: Point(x: 0, y: 0, z: -1), radius: 0.5) {
+            return .red
+        }
         let unitDirection = direction.unit
         let offset = 0.5 * (unitDirection.y + 1)
         return (1 - offset) * .white + offset * .skyBlue
+    }
+    
+    func hitSphere(at center: Point, radius: Double) -> Bool {
+        let originToCenter = origin - center
+        let a = direction.dot(direction)
+        let b = 2 * originToCenter.dot(direction)
+        let c = originToCenter.dot(originToCenter) - pow(radius, 2)
+        let discriminant = pow(b, 2) - 4 * a * c
+        return discriminant > 0
     }
 }
